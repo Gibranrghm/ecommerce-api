@@ -15,6 +15,10 @@ class ProductViewSet(viewsets.ModelViewSet):
     serializer_class = ProductSerializer
     permission_classes = [permissions.IsAuthenticatedOrReadOnly, IsOwnerOrReadOnly]
 
+    filterset_fields = ['category', 'available']
+    search_fields = ['name', 'description']
+    ordering_fields = ['price', 'created_at', 'name']
+
     def perform_create(self, serializer):
         serializer.save(owner=self.request.user)
 
