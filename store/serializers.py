@@ -24,4 +24,5 @@ class ProductSerializer(serializers.ModelSerializer):
             'available',
             'created_at',
             'updated_at',
+            'owner',
         ]
